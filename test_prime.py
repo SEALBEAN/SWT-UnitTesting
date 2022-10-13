@@ -7,19 +7,14 @@ from prime import primes
 with open('input.txt', 'r') as f:
     file_content = f.readlines()
     input_str = list(map(lambda x: str(x).rstrip('\n'), file_content))
-    input_test_case = [tuple(map(int, i.split(','))) for i in input_str]
+    input_test_case = [tuple(map(float, i.split(','))) for i in input_str]
 
 with open('expected.txt', 'r') as f:
     file_content = f.readlines()
     expected_str = list(map(lambda x: str(x).rstrip('\n'), file_content))
-    expected_test_case = [list(map(int, i.split(','))) for i in expected_str]
+    expected_test_case = [list(map(float, i.split(','))) for i in expected_str]
 
 right_test_case = list(zip(input_test_case, expected_test_case))
-
-wrong_test_case = [
-    (-1, 0, does_not_raise()),
-    (0, 10, does_not_raise())
-]
 
 
 def test_primes_with_right_arguments_returns_well_normal_way():
